@@ -36,6 +36,11 @@ namespace Realm {
 
 	class QQRealm {
 	public:
+		struct Obj {
 
+		};
+
+	private:
+		static Obj ObjUser;
 	};
 }
