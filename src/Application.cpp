@@ -30,6 +30,8 @@ namespace Realm {
 	//Practice Free memory
 	Application::~Application()
 	{
+		delete s_Instance;
+		s_Instance = nullptr;
 	}
 
 	//CreateInstance
