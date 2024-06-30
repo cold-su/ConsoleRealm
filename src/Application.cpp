@@ -3,30 +3,36 @@
 namespace Realm {
 	Application* Application::s_Instance = nullptr;
 
+	//Necessary initialization
 	Application Application::Init()
 	{
 		return Application();
 	}
 
+	//start Run and Execute Funtion
 	Application Application::Run()
 	{
 		return Application();
 	}
 
+	//~Funtion
 	Application Application::Quit()
 	{
 		return Application();
 	}
 
+	//TODO:User defined
 	Application::Application()
 	{
 
 	}
 
+	//Practice Free memory
 	Application::~Application()
 	{
 	}
 
+	//CreateInstance
 	Application* Application::CreateApplication()
 	{
 		s_Instance = &Application();
