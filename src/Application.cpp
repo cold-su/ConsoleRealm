@@ -4,21 +4,21 @@ namespace Realm {
 	Application* Application::s_Instance = nullptr;
 
 	//Necessary initialization
-	Application Application::Init()
+	Application* Application::Init()
 	{
-		return Application();
+		return s_Instance;
 	}
 
 	//start Run and Execute Funtion
-	Application Application::Run()
+	Application* Application::Run()
 	{
-		return Application();
+		return s_Instance;
 	}
 
 	//~Funtion
-	Application Application::Quit()
+	Application* Application::Quit()
 	{
-		return Application();
+		return s_Instance;
 	}
 
 	//TODO:User defined

@@ -10,9 +10,9 @@ namespace Realm {
 
 	class Application {
 	public:
-		static Application Init();
-		static Application Run();
-		static Application Quit();
+		static Application* Init();
+		static Application* Run();
+		static Application* Quit();
 
 		Application();
 		~Application();
