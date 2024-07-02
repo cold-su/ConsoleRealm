@@ -3,7 +3,7 @@
 #include <json/json.h>
 
 namespace Base {
-	RealmConfig::RealmConfig():JsonConfig(Read(PathDate + "config.json")) {
+	RealmConfig::RealmConfig() {
 
 	}
 	Json::Value RealmConfig::Read(std::string Path){

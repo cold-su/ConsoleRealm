@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\base\base.h" />
     <ClInclude Include="src\base\Config.h" />
     <ClInclude Include="src\base\Path.h" />
     <ClInclude Include="src\RealmDC\RealmDC.h" />

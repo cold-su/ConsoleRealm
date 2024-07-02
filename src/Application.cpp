@@ -1,9 +1,9 @@
 ﻿#include "Application.h"
-#include "base/base.h"
 
 namespace Realm {
 	//Necessary initialization
 	Application* Application::Init(){
+
 
 		return s_Instance;
 	}

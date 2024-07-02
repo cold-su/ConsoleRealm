@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include <json/value.h>
-#include "Path.h"
 
 namespace Base {
 	class RealmConfig {
