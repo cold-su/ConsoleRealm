@@ -101,6 +101,7 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\base\base.hpp" />
     <ClInclude Include="src\base\Config.h" />
+    <ClInclude Include="src\base\Path.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>

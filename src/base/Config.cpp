@@ -1,32 +1,29 @@
 ﻿#include "Config.h"
+#include "Path.h"
 #include <fstream>
 #include <json/json.h>
 
 namespace Base {
-	ConfigRead* ConfigRead::s_Instance = nullptr;
-
-	ConfigRead::ConfigRead() {
-
+	RealmConfig::RealmConfig()
+		:ConfigPath(PathDate + "config.json") {
+		JsonConfig = Read();
 	}
+	Json::Value RealmConfig::Read(){
+		std::ifstream File(ConfigPath);
 
-	Json::Value ConfigRead::ConfigRe_read() {
+		if (!File.is_open())
+			return -1;
+
+		Json::CharReaderBuilder ReaderBuilder;
+		ReaderBuilder["emitUTF8"] = true;//utf8
+
+		Json::Value root;
+
+		std::string strerr;
+
+		if (!Json::parseFromStream(ReaderBuilder, File, &root, &strerr))
+			return -1;
 
 		return Json::Value();
-	}
-
-	ConfigRead* ConfigRead::ConfigReadInit() {
-		s_Instance = new ConfigRead;
-		return s_Instance;
-	}
-
-	ConfigSave* ConfigSave::s_Instance = nullptr;
-
-	ConfigSave::ConfigSave(std::string path = "") :ConfigPath(path) {
-
-	}
-
-	ConfigSave* ConfigSave::ConfigSaveInit() {
-		s_Instance = new ConfigSave();
-		return s_Instance;
 	}
 }
