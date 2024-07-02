@@ -17,7 +17,7 @@ namespace Base {
 
 	class ConfigSave {
 	public:
-		ConfigSave();
+		ConfigSave(std::string path);
 
 		static ConfigSave* ConfigSaveInit();
 	private:

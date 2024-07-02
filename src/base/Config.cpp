@@ -21,12 +21,12 @@ namespace Base {
 
 	ConfigSave* ConfigSave::s_Instance = nullptr;
 
-	ConfigSave::ConfigSave() {
+	ConfigSave::ConfigSave(std::string path = "") :ConfigPath(path) {
 
 	}
 
 	ConfigSave* ConfigSave::ConfigSaveInit() {
-		s_Instance = new ConfigSave;
+		s_Instance = new ConfigSave();
 		return s_Instance;
 	}
 }

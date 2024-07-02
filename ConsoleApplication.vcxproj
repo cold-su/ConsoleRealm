@@ -89,6 +89,7 @@
   <ItemGroup>
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
+    <None Include="date\config.json" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
