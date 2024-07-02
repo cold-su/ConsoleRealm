@@ -3,6 +3,7 @@
 */
 
 #pragma once
+#include "base/Config.h"
 
 int main(int argc, char** argv);
 
@@ -20,5 +21,8 @@ namespace Realm {
 		static Application* CreateApplication();
 		friend int ::main(int argc, char** argv);
 		static Application* s_Instance;
+	private:
+
 	};
+
 }

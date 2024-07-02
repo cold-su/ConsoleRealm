@@ -1,44 +1,40 @@
 ﻿#include "Application.h"
+#include "base/base.hpp"
 
 namespace Realm {
-	Application* Application::s_Instance = nullptr;
-
 	//Necessary initialization
-	Application* Application::Init()
-	{
+	Application* Application::Init(){
+		base::Init();
+
 		return s_Instance;
 	}
 
 	//start Run and Execute Funtion
-	Application* Application::Run()
-	{
+	Application* Application::Run(){
 		return s_Instance;
 	}
 
-	//~Funtion
-	Application* Application::Quit()
-	{
+	//~Funtion,And Save Run Data
+	Application* Application::Quit(){
 		return s_Instance;
 	}
 
 	//TODO:User defined
-	Application::Application()
-	{
+	Application::Application(){
 
 	}
 
 	//Practice Free memory
-	Application::~Application()
-	{
+	Application::~Application(){
 		delete s_Instance;
 		s_Instance = nullptr;
 	}
 
 	//CreateInstance
-	Application* Application::CreateApplication()
-	{
-		s_Instance = &Application();
+	Application* Application::CreateApplication(){
+		s_Instance = new Application();
 		return s_Instance;
 	}
 
+	Application* Application::s_Instance = nullptr;
 }
