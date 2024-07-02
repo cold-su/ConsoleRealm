@@ -1,15 +1,16 @@
 ﻿#pragma once
 #include <json/value.h>
+#include "Path.h"
 
 namespace Base {
 	class RealmConfig {
 	public:
 		RealmConfig();
 
-		Json::Value Read();
+		static Json::Value Read(std::string Path);
+		static RealmConfig* GetInstance();
 	private:
 		Json::Value JsonConfig;
-		std::string ConfigPath;
 		static RealmConfig* s_Instance;
 	};
 }

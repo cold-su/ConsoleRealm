@@ -1,15 +1,13 @@
 ﻿#include "Config.h"
-#include "Path.h"
 #include <fstream>
 #include <json/json.h>
 
 namespace Base {
-	RealmConfig::RealmConfig()
-		:ConfigPath(PathDate + "config.json") {
-		JsonConfig = Read();
+	RealmConfig::RealmConfig():JsonConfig(Read(PathDate + "config.json")) {
+
 	}
-	Json::Value RealmConfig::Read(){
-		std::ifstream File(ConfigPath);
+	Json::Value RealmConfig::Read(std::string Path){
+		std::ifstream File(Path);
 
 		if (!File.is_open())
 			return -1;
@@ -26,4 +24,10 @@ namespace Base {
 
 		return Json::Value();
 	}
+
+	RealmConfig* RealmConfig::GetInstance(){
+		return s_Instance;
+	}
+
+	RealmConfig* RealmConfig::s_Instance = nullptr;
 }

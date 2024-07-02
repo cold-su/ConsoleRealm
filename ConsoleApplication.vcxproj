@@ -95,13 +95,16 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\base\Config.cpp" />
+    <ClCompile Include="src\RealmDC\RealmDC.cpp" />
     <ClCompile Include="src\start.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\base\base.hpp" />
+    <ClInclude Include="src\base\base.h" />
     <ClInclude Include="src\base\Config.h" />
     <ClInclude Include="src\base\Path.h" />
+    <ClInclude Include="src\RealmDC\RealmDC.h" />
+    <ClInclude Include="src\RealmQQ\RealmQQ.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
