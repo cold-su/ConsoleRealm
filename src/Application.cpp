@@ -6,21 +6,24 @@ namespace Realm {
 	//Necessary initialization
 	Application* Application::Init(){
 		Base::InitConfig("/home/awalwa/projects/ConsoleApplication/date/");
-		std::cout << (*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]["Token"].asString();
 
 		InitRealmDC();
-
+		RealmDC::GetInstance()->DCInit();
 
 		return s_Instance;
 	}
 
 	//start Run and Execute Funtion
 	Application* Application::Run(){
+		RealmDC::GetInstance()->DCRun();
+
 		return s_Instance;
 	}
 
 	//~Funtion,And Save Run Data
 	Application* Application::Quit(){
+		RealmDC::GetInstance()->DCQuit();
+
 		return s_Instance;
 	}
 
