@@ -3,10 +3,10 @@
 #include <json/json.h>
 
 namespace Base {
-	RealmConfig::RealmConfig() {
+	RealmConfig::RealmConfig(std::string Path) :JsonConfig(Path + "config.json") {
 
 	}
-	Json::Value RealmConfig::Read(std::string Path){
+	Json::Value RealmConfig::Read(std::string Path) {
 		std::ifstream File(Path);
 
 		if (!File.is_open())
@@ -25,9 +25,14 @@ namespace Base {
 		return Json::Value();
 	}
 
-	RealmConfig* RealmConfig::GetInstance(){
+	RealmConfig* RealmConfig::SetInstance(RealmConfig* Instance) {
+		s_Instance = Instance;
 		return s_Instance;
 	}
 
 	RealmConfig* RealmConfig::s_Instance = nullptr;
+	void InitConfig(std::string Path) {
+		RealmConfig::SetInstance(new RealmConfig(Path));
+
+	}
 }

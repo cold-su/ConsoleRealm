@@ -1,9 +1,10 @@
 ﻿#include "Application.h"
+#include "base/Config.h"
 
 namespace Realm {
 	//Necessary initialization
 	Application* Application::Init(){
-
+		Base::InitConfig("/home/awalwa/projects/ConsoleApplication/date/");
 
 		return s_Instance;
 	}

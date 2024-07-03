@@ -4,12 +4,13 @@
 namespace Base {
 	class RealmConfig {
 	public:
-		RealmConfig();
+		RealmConfig(std::string Path);
 
 		static Json::Value Read(std::string Path);
-		static RealmConfig* GetInstance();
+		static RealmConfig* SetInstance(RealmConfig* Instance);
 	private:
 		Json::Value JsonConfig;
 		static RealmConfig* s_Instance;
 	};
+	void InitConfig(std::string Path);
 }
