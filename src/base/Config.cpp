@@ -2,9 +2,12 @@
 #include <fstream>
 #include <json/json.h>
 
-namespace Base {
-	RealmConfig::RealmConfig(std::string Path) :JsonConfig(Path + "config.json") {
+#include <iostream>
 
+namespace Base {
+	RealmConfig::RealmConfig(std::string Path_) :Path(Path_) {
+		JsonConfig = (Read(Path + "config.json"));
+		std::cout << JsonConfig.asString();
 	}
 	Json::Value RealmConfig::Read(std::string Path) {
 		std::ifstream File(Path);
@@ -28,6 +31,14 @@ namespace Base {
 	RealmConfig* RealmConfig::SetInstance(RealmConfig* Instance) {
 		s_Instance = Instance;
 		return s_Instance;
+	}
+
+	RealmConfig* RealmConfig::GetInstance(){
+		return s_Instance;
+	}
+
+	Json::Value* RealmConfig::GetJsonConfig(){
+		return &JsonConfig;
 	}
 
 	RealmConfig* RealmConfig::s_Instance = nullptr;

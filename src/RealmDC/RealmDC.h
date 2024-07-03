@@ -1,12 +1,22 @@
 ﻿#pragma once
 #include <dpp/dpp.h>
-#include "../base/Path.h"
+#include <json/value.h>
+#include "../base/Config.h"
 
-class RealmDC {
-public:
-	RealmDC();
+namespace Realm {
+	class RealmDC {
+	public:
+		RealmDC();
 
-private:
-	dpp::cluster Realm = dpp::cluster(JsonConfig["RealmDC"]["Token"].asString());
-	static RealmDC* s_Instance;
-};
+		void DCInit();
+		void DCRun();
+		void DCQuit();
+		static void SetInstance(RealmDC* Instance);
+		static RealmDC* GetInstance();
+	private:
+		Json::Value ConfigDC;
+		dpp::cluster* RealmBot = nullptr;
+		static RealmDC* s_Instance;
+	};
+	void InitRealmDC();
+}

@@ -1,10 +1,15 @@
 ﻿#include "Application.h"
 #include "base/Config.h"
+#include "RealmDC/RealmDC.h"
 
 namespace Realm {
 	//Necessary initialization
 	Application* Application::Init(){
 		Base::InitConfig("/home/awalwa/projects/ConsoleApplication/date/");
+		std::cout << (*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]["Token"].asString();
+
+		InitRealmDC();
+
 
 		return s_Instance;
 	}
