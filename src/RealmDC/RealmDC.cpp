@@ -35,7 +35,7 @@ namespace Realm {
 	}
 
 	dpp::cluster* RealmDC::GetRealmBot(){
-		return RealmBot;
+		return s_Instance->RealmBot;
 	}
 
 

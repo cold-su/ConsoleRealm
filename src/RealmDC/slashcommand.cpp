@@ -3,7 +3,7 @@
 #include "RealmHash.h"
 
 namespace Realm {
-	Slashcommand::Slashcommand() :RealmBot(RealmDC::GetInstance()->GetRealmBot()) {
+	Slashcommand::Slashcommand() :RealmBot(RealmDC::GetRealmBot()) {
 
 	}
 
@@ -48,6 +48,7 @@ namespace Realm {
 		//Funtion
 		RealmHash::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
 			event->reply("hello~");
+
 			});
 
 	}
