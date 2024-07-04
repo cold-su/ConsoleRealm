@@ -8,19 +8,6 @@ namespace Realm {
 	void RealmDC::DCInit() {
 		RealmBot->on_log(dpp::utility::cout_logger());
 
-		//test temp
-		RealmBot->on_slashcommand([](const dpp::slashcommand_t& event) {
-			if (event.command.get_command_name() == "ping") {
-				event.reply("Pong!");
-			}
-			});
-
-		RealmBot->on_ready([this](const dpp::ready_t& event) {
-			if (dpp::run_once<struct register_bot_commands>()) {
-				RealmBot->global_command_create(dpp::slashcommand("ping", "Ping pong!", RealmBot->me.id));
-			}
-			});
-		//testend
 	}
 
 	void RealmDC::DCRun() {

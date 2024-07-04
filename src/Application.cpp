@@ -1,6 +1,8 @@
 ﻿#include "Application.h"
 #include "base/Config.h"
+
 #include "RealmDC/RealmDC.h"
+#include "RealmQQ/RealmQQ.h"
 
 namespace Realm {
 	//Necessary initialization
@@ -13,9 +15,10 @@ namespace Realm {
 		return s_Instance;
 	}
 
-	//start Run and Execute Funtion
+	//start Run and Execute Funtion,Runing date link
 	Application* Application::Run(){
 		RealmDC::GetInstance()->DCRun();
+		
 
 		return s_Instance;
 	}

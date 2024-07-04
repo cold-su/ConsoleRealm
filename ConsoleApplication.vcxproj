@@ -82,6 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <MultiProcNumber>3</MultiProcNumber>
+    <IncludePath>C:\Users\Administrator\source\repos\ConsoleApplication\ConsoleApplication\src\RealmQQ\twobot\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <MultiProcNumber>3</MultiProcNumber>
@@ -96,6 +97,8 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\base\Config.cpp" />
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
+    <ClCompile Include="src\RealmQQ\twobot\apiset.cc" />
+    <ClCompile Include="src\RealmQQ\twobot\twobot.cc" />
     <ClCompile Include="src\start.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +106,7 @@
     <ClInclude Include="src\base\Config.h" />
     <ClInclude Include="src\RealmDC\RealmDC.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />
+    <ClInclude Include="src\RealmQQ\twobot\twobot.hh" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
