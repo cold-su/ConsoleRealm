@@ -53,7 +53,6 @@ namespace Realm {
 		RealmHash::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
 			event->reply("Pong~");
 			});
-
 	}
 
 	Slashcommand* Slashcommand::s_Instance = nullptr;

@@ -94,6 +94,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\RealmDC\Link.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\base\Config.cpp" />
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
@@ -107,6 +108,7 @@
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\base\Config.h" />
+    <ClInclude Include="src\RealmDC\Link.h" />
     <ClInclude Include="src\RealmDC\RealmDC.h" />
     <ClInclude Include="src\RealmDC\RealmHash.h" />
     <ClInclude Include="src\RealmDC\slashcommand.h" />
