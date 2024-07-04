@@ -46,8 +46,8 @@ namespace Realm {
 			});
 
 		//Funtion
-		RealmHash::AddFuntionHash("ping", [](dpp::slashcommand_t* event)->void {
-			event->reply("hello");
+		RealmHash::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
+			event->reply("hello~");
 			});
 
 	}
