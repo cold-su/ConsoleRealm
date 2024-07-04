@@ -10,7 +10,7 @@ namespace Realm {
 	private:
 		static void RunDeleteSlashcommand();
 		void LoadSlashcommand();
-		void LoadFuntion();
+		void LoadSlashcommandFuntion();
 
 		dpp::cluster* RealmBot;
 		static Slashcommand* s_Instance;

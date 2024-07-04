@@ -9,4 +9,6 @@ namespace Realm {
 
 	}
 
+	//static
+	std::unordered_map<std::string, void* (dpp::slashcommand_t* event)>* RealmHash::FuntionHash = nullptr;
 }

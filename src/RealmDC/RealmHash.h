@@ -10,6 +10,6 @@ namespace Realm {
 
 		static void AddFuntionHash();
 
-		static std::unordered_map<std::string, void* ()> FuntionHash;
+		static std::unordered_map<std::string, void* (dpp::slashcommand_t* event)>* FuntionHash;
 	};
 }

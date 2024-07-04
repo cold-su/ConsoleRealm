@@ -1,6 +1,6 @@
 ﻿#include "RealmDC.h"
 #include "RealmHash.h"
-
+#include "slashcommand.h"
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
@@ -10,6 +10,7 @@ namespace Realm {
 	void RealmDC::DCInit() {
 		RealmBot->on_log(dpp::utility::cout_logger());
 		RealmHash::InitHash();
+		Slashcommand::InitSlashcommand();
 	}
 
 	void RealmDC::DCRun() {
