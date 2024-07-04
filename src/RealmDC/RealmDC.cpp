@@ -9,14 +9,17 @@ namespace Realm {
 
 	void RealmDC::DCInit() {
 		RealmBot->on_log(dpp::utility::cout_logger());
+		//need to obtain bot date from Discord
+		RealmBot->start(dpp::st_return);
+
 		RealmHash::InitHash();
+
 		Slashcommand::InitSlashcommand();
 	}
 
 	void RealmDC::DCRun() {
 
 
-		RealmBot->start(dpp::st_return);
 	}
 
 	void RealmDC::DCQuit() {

@@ -15,6 +15,9 @@ namespace Realm {
 
 		RunDeleteSlashcommand();
 	}
+	Slashcommand* Slashcommand::GetInstance(){
+		return s_Instance;
+	}
 	void Slashcommand::RunDeleteSlashcommand() {
 		delete s_Instance;
 		s_Instance = nullptr;
@@ -40,9 +43,13 @@ namespace Realm {
 				std::cerr << "似乎调用了未注册的命令:";
 				std::cerr << msg << std::endl;
 			}
-
-			
 			});
+
+		//Funtion
+		RealmHash::AddFuntionHash("ping", [](dpp::slashcommand_t* event)->void {
+			event->reply("hello");
+			});
+
 	}
 
 	Slashcommand* Slashcommand::s_Instance = nullptr;

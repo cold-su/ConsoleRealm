@@ -7,6 +7,7 @@ namespace Realm {
 	public:
 		Slashcommand();
 		static void InitSlashcommand();
+		static Slashcommand* GetInstance();
 	private:
 		static void RunDeleteSlashcommand();
 		void LoadSlashcommand();
