@@ -28,6 +28,7 @@ namespace Realm {
 		RealmBot->on_ready([this](const dpp::ready_t event) {
 			if (dpp::run_once<struct register_bot_commands>()) {
 				RealmBot->global_command_create(dpp::slashcommand("Ping", "Test slashcommand", RealmBot->me.id));
+				RealmBot->global_command_create(dpp::slashcommand("Test", "Test slashcommand", RealmBot->me.id));
 			}
 			});
 	}
@@ -37,18 +38,20 @@ namespace Realm {
 		//main
 		RealmBot->on_slashcommand([](dpp::slashcommand_t event) {
 			try {
+				if ((*RealmHash::FuntionHash)[event.command.get_command_name()] == nullptr) {
+					event.reply("~~没有这个命令的实现~~");
+					throw "调用了空函数";
+				}
 				(*RealmHash::FuntionHash)[event.command.get_command_name()](&event);
 			}
 			catch (const char* msg) {
-				std::cerr << "似乎调用了未注册的命令:";
 				std::cerr << msg << std::endl;
 			}
 			});
 
 		//Funtion
 		RealmHash::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
-			event->reply("hello~");
-
+			event->reply("Pong~");
 			});
 
 	}
