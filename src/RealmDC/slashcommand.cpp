@@ -31,6 +31,7 @@ namespace Realm {
 
 	//实现
 	void Slashcommand::LoadSlashcommandFuntion() {
+		//main
 		RealmBot->on_slashcommand([](dpp::slashcommand_t event) {
 			try {
 				(*RealmHash::FuntionHash)[event.command.get_command_name()](&event);
@@ -39,6 +40,8 @@ namespace Realm {
 				std::cerr << "似乎调用了未注册的命令:";
 				std::cerr << msg << std::endl;
 			}
+
+			
 			});
 	}
 

@@ -8,8 +8,8 @@ namespace Realm {
 	public:
 		static void InitHash();
 
-		static void AddFuntionHash();
+		static void AddFuntionHash(std::string Command, void(*Funtion)(dpp::slashcommand_t*));
 
-		static std::unordered_map<std::string, void* (dpp::slashcommand_t* event)>* FuntionHash;
+		static std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> FuntionHash;
 	};
 }

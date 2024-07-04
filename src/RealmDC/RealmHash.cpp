@@ -3,12 +3,12 @@
 
 namespace Realm {
 	void RealmHash::InitHash(){
-
+		FuntionHash.reset(new std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>());
 	}
-	void RealmHash::AddFuntionHash(){
-
+	void RealmHash::AddFuntionHash(std::string Command, void(*Funtion)(dpp::slashcommand_t*)){
+		(*FuntionHash)[Command] = Funtion;
 	}
 
 	//static
-	std::unordered_map<std::string, void* (dpp::slashcommand_t* event)>* RealmHash::FuntionHash = nullptr;
+	std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> RealmHash::FuntionHash = nullptr;
 }
