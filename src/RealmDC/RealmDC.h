@@ -13,6 +13,8 @@ namespace Realm {
 		void DCQuit();
 		static void SetInstance(RealmDC* Instance);
 		static RealmDC* GetInstance();
+		dpp::cluster* GetRealmBot();
+
 	private:
 		Json::Value ConfigDC;
 		dpp::cluster* RealmBot = nullptr;

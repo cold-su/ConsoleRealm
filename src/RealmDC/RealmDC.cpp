@@ -1,4 +1,6 @@
 ﻿#include "RealmDC.h"
+#include "RealmHash.h"
+
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
@@ -7,13 +9,13 @@ namespace Realm {
 
 	void RealmDC::DCInit() {
 		RealmBot->on_log(dpp::utility::cout_logger());
-
+		RealmHash::InitHash();
 	}
 
 	void RealmDC::DCRun() {
 
 
-		RealmBot->start(dpp::st_wait);
+		RealmBot->start(dpp::st_return);
 	}
 
 	void RealmDC::DCQuit() {
@@ -27,6 +29,12 @@ namespace Realm {
 	RealmDC* RealmDC::GetInstance() {
 		return s_Instance;
 	}
+
+	dpp::cluster* RealmDC::GetRealmBot(){
+		return RealmBot;
+	}
+
+
 
 	RealmDC* RealmDC::s_Instance = nullptr;
 

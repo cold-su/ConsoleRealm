@@ -97,6 +97,8 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\base\Config.cpp" />
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
+    <ClCompile Include="src\RealmDC\RealmHash.cpp" />
+    <ClCompile Include="src\RealmDC\slashcommand.cpp" />
     <ClCompile Include="src\RealmQQ\RealmQQ.cpp" />
     <ClCompile Include="src\RealmQQ\twobot\apiset.cc" />
     <ClCompile Include="src\RealmQQ\twobot\twobot.cc" />
@@ -106,6 +108,8 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\base\Config.h" />
     <ClInclude Include="src\RealmDC\RealmDC.h" />
+    <ClInclude Include="src\RealmDC\RealmHash.h" />
+    <ClInclude Include="src\RealmDC\slashcommand.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />
     <ClInclude Include="src\RealmQQ\twobot\twobot.hh" />
   </ItemGroup>

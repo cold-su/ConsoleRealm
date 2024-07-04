@@ -1,27 +1,29 @@
 ﻿#include "RealmQQ.h"
+#include "../base/Config.h"
 
 namespace Realm {
-	RealmQQ::RealmQQ(){
+	RealmQQ::RealmQQ() :ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmQQ"]) {
 
 	}
-	void RealmQQ::DCInit()
-	{
+	//加载
+	void RealmQQ::DCInit() {
+
 	}
-	void RealmQQ::DCRun()
-	{
+	void RealmQQ::DCRun() {
+
 	}
-	void RealmQQ::DCQuit()
-	{
+	void RealmQQ::DCQuit() {
+
 	}
-	void RealmQQ::SetInstance(RealmQQ* Instance)
-	{
+	void RealmQQ::SetInstance(RealmQQ* Instance) {
+		s_Instance = Instance;
 	}
-	RealmQQ* RealmQQ::GetInstance(){
-		return nullptr;
+	RealmQQ* RealmQQ::GetInstance() {
+		return s_Instance;
 	}
 	RealmQQ* RealmQQ::s_Instance = nullptr;
 
-	void InitRealmQQ(){
-
+	void InitRealmQQ() {
+		RealmQQ::SetInstance(new RealmQQ);
 	}
 }
