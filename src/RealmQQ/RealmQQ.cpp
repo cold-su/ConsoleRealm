@@ -35,6 +35,9 @@ namespace Realm {
 	RealmQQ* RealmQQ::GetInstance() {
 		return s_Instance;
 	}
+	twobot::BotInstance* RealmQQ::GetRealmBot(){
+		return &*s_Instance->RealmBot;
+	}
 	RealmQQ* RealmQQ::s_Instance = nullptr;
 
 	void InitRealmQQ() {

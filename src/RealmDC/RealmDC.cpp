@@ -4,7 +4,7 @@
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
-		RealmBot = new dpp::cluster(ConfigDC["Token"].asString());
+		RealmBot = new dpp::cluster(ConfigDC["Token"]);
 	}
 
 	void RealmDC::DCInit() {

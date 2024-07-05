@@ -13,8 +13,9 @@ namespace Realm {
 		void QQQuit();
 		static void SetInstance(RealmQQ* Instance);
 		static RealmQQ* GetInstance();
+		static twobot::BotInstance* GetRealmBot();
 	private:
-		Json::Value ConfigQQ;
+		nlohmann::json ConfigQQ;
 		std::unique_ptr<twobot::BotInstance> RealmBot;
 
 		static RealmQQ* s_Instance;

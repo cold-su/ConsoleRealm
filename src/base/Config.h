@@ -1,17 +1,17 @@
 ﻿#pragma once
-#include <json/value.h>
+#include <nlohmann/json.hpp>
 
 namespace Base {
 	class RealmConfig {
 	public:
 		RealmConfig(std::string Path_);
 
-		static Json::Value Read(std::string Path);
+		static nlohmann::json Read(std::string Path);
 		static RealmConfig* SetInstance(RealmConfig* Instance);
 		static RealmConfig* GetInstance();
-		Json::Value* GetJsonConfig();
+		nlohmann::json* GetJsonConfig();
 	private:
-		Json::Value JsonConfig;
+		nlohmann::json JsonConfig;
 		std::string Path;
 		static RealmConfig* s_Instance;
 	};

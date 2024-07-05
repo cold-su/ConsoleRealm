@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <dpp/dpp.h>
-#include <json/value.h>
+#include <nlohmann/json.hpp>
+
 #include "../base/Config.h"
 
 namespace Realm {
@@ -16,7 +17,7 @@ namespace Realm {
 		static dpp::cluster* GetRealmBot();
 
 	private:
-		Json::Value ConfigDC;
+		nlohmann::json ConfigDC;
 		dpp::cluster* RealmBot = nullptr;
 		static RealmDC* s_Instance;
 	};

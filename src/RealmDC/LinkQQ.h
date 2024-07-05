@@ -1,11 +1,12 @@
 ﻿#pragma once
-#include <json/value.h>
+#include <nlohmann/json.hpp>
+
 namespace Realm::DC {
 	class LinkQQ {
 	public:
 		static void InitLink();
-		static void Input(Json::Value obj);
-		static void output(void(*Send)(Json::Value obj));
+		static void Input(nlohmann::json obj);
+		static void output(void(*Send)(nlohmann::json obj));
 
 	private:
 
