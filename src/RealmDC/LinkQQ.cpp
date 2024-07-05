@@ -20,8 +20,11 @@ namespace Realm::DC {
 	void LinkQQ::output(void(*Send)(nlohmann::json obj)) {
 		RealmDC::GetRealmBot()->on_message_create([Send](const dpp::message_create_t& event) {
 			
+			static nlohmann::json JsonObj = (nlohmann::json)event.msg.to_json();
+			JsonObj["usernamecustom"] = event.msg.author.global_name;
+
 			//debug
-			std::cout << (nlohmann::json)event.msg.build_json() << std::endl;
+			std::cout << JsonObj << std::endl;
 
 			(*Send)((nlohmann::json)event.msg.build_json());
 			});
