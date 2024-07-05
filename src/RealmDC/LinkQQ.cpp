@@ -10,6 +10,8 @@ namespace Realm::DC {
 	void LinkQQ::Input(nlohmann::json obj) {
 		//debug
 		std::cout << "DC函数回调" << std::endl;
+		int test = obj["group_id"];
+		std::cout << test << std::endl;
 
 		dpp::message msg;
 
@@ -19,14 +21,16 @@ namespace Realm::DC {
 	//输出QQ
 	void LinkQQ::output(void(*Send)(nlohmann::json obj)) {
 		RealmDC::GetRealmBot()->on_message_create([Send](const dpp::message_create_t& event) {
-			
-			static nlohmann::json JsonObj = (nlohmann::json)event.msg.to_json();
-			JsonObj["usernamecustom"] = event.msg.author.global_name;
+
+			nlohmann::json JsonObj = (nlohmann::json)event.msg.to_json();
+
+			JsonObj["usernamecustom"] = event.msg.author.global_name != "" ? event.msg.author.global_name : (std::string)JsonObj["username"];
 
 			//debug
 			std::cout << JsonObj << std::endl;
 
-			(*Send)(JsonObj);
+			if (event.msg.channel_id == 950402907575054336)
+				(*Send)(JsonObj);
 			});
 	}
 

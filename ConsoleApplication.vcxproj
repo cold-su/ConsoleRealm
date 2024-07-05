@@ -116,7 +116,7 @@
     <ClInclude Include="src\RealmDC\slashcommand.h" />
     <ClInclude Include="src\RealmDC\webhook.h" />
     <ClInclude Include="src\RealmQQ\LinkDC.h" />
-    <ClInclude Include="src\RealmQQ\RealmHash.h" />
+    <ClInclude Include="src\RealmQQ\RealmHashQQ.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />
     <ClInclude Include="src\RealmQQ\twobot\twobot.hh" />
   </ItemGroup>
