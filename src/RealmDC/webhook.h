@@ -1,7 +1,8 @@
 ﻿#pragma once
 
 #include <dpp/dpp.h>
-#include <httplib.h>
+#include <nlohmann/json.hpp>
+
 #include "RealmDC.h"
 
 namespace Realm {
@@ -10,9 +11,11 @@ namespace Realm {
 		Webhook();
 
 		static void InitWebhook();
-		static Webhook* GetWebhook();
+		static dpp::webhook* GetWebhook();
+		//static Webhook* SetWebhook();
+		static void LinkWebhook();
 	private:
-		//httplib::Client a;
+		dpp::webhook Linkhook;
 		static Webhook* s_Instance;
 	};
 }

@@ -1,6 +1,7 @@
 ﻿#include "LinkQQ.h"
 #include "RealmDC.h"
 #include "RealmHashDC.h"
+#include "webhook.h"
 
 namespace Realm::DC {
 	void LinkQQ::InitLink() {
@@ -13,9 +14,10 @@ namespace Realm::DC {
 		int test = obj["group_id"];
 		std::cout << test << std::endl;
 
-		dpp::message msg;
+		//dpp::message msg;
+		//RealmDC::GetRealmBot()->message_create(msg);
 
-		RealmDC::GetRealmBot()->message_create(msg);
+		Webhook::LinkWebhook();
 	}
 
 	//输出QQ
