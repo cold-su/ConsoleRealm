@@ -9,6 +9,6 @@ namespace Realm {
 	public:
 		static void InitHash();
 
-		static std::unique_ptr<std::unordered_map<dpp::snowflake, dpp::snowflake>> groupHash;
+		static std::unique_ptr<std::unordered_map<dpp::snowflake, int>> groupHash;
 	};
 }

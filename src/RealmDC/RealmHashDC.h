@@ -12,7 +12,7 @@ namespace Realm {
 
 		static std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> FuntionHash;
 
-		static std::unique_ptr<std::unordered_map<dpp::snowflake, dpp::snowflake>> channelHash;
+		static std::unique_ptr<std::unordered_map<int, dpp::snowflake>> channelHash;
 
 		static std::unique_ptr<std::unordered_map<dpp::snowflake, std::string>>ImageHash;
 	};

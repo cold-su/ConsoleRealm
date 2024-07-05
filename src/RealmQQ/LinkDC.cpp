@@ -3,7 +3,6 @@
 
 #include "RealmHashQQ.h"
 #include <iostream>
-#include <stdlib.h>
 
 namespace Realm::QQ {
 	void LinkDC::InitLink() {
@@ -12,12 +11,12 @@ namespace Realm::QQ {
 	void LinkDC::InputMsg(nlohmann::json obj) {
 		std::cout << "QQ函数回调" << std::endl;
 
-		std::cout << (*RealmHashQQ::groupHash)[atoi(std::string(obj["channel_id"]).c_str())] << std::endl;
+		std::cout << (*RealmHashQQ::groupHash)[950402907575054336] << std::endl;
 		//TODO:bug
-		int group = (*RealmHashQQ::groupHash)[atoi(std::string(obj["channel_id"]).c_str())];
+		//int group = (*RealmHashQQ::groupHash)[950402907575054336];
 
 		RealmQQ::GetRealmBot()->getApiSet().
-			sendGroupMsg(group, ((std::string)obj["usernamecustom"] + ":" + (std::string)obj["content"]));
+			sendGroupMsg((*RealmHashQQ::groupHash)[950402907575054336], ((std::string)obj["usernamecustom"] + ":" + (std::string)obj["content"]));
 	}
 
 	void LinkDC::OutputMsg(void(*Send)(nlohmann::json obj)) {
