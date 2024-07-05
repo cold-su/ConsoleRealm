@@ -1,5 +1,6 @@
 ﻿#include "RealmQQ.h"
 #include "../base/Config.h"
+#include <thread>
 
 namespace Realm {
 	RealmQQ::RealmQQ() :ConfigQQ((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmQQ"]) {
@@ -12,14 +13,18 @@ namespace Realm {
 		// system("chcp 65001 && cls");
 
 		RealmBot = BotInstance::createInstance(Config{
-			"127.0.0.1",
-			8080,
-			8081,
+			"192.168.31.167",
+			5751,
+			5752,
 			std::nullopt
 			});
 	}
 	//加载
 	void RealmQQ::QQInit() {
+
+		std::thread([&]() {
+			RealmBot->start();
+			}).detach();
 
 	}
 	void RealmQQ::QQRun() {
@@ -35,7 +40,7 @@ namespace Realm {
 	RealmQQ* RealmQQ::GetInstance() {
 		return s_Instance;
 	}
-	twobot::BotInstance* RealmQQ::GetRealmBot(){
+	twobot::BotInstance* RealmQQ::GetRealmBot() {
 		return &*s_Instance->RealmBot;
 	}
 	RealmQQ* RealmQQ::s_Instance = nullptr;

@@ -4,12 +4,12 @@
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
-		RealmBot = new dpp::cluster(ConfigDC["Token"]);
+		RealmBot = new dpp::cluster(ConfigDC["Token"], dpp::i_default_intents | dpp::i_message_content);
 	}
 
 	void RealmDC::DCInit() {
 		RealmBot->on_log(dpp::utility::cout_logger());
-		//need to obtain bot date from Discord
+
 		RealmBot->start(dpp::st_return);
 
 		RealmHash::InitHash();
@@ -26,7 +26,7 @@ namespace Realm {
 
 	}
 
-	void RealmDC::SetInstance(RealmDC* Instance){
+	void RealmDC::SetInstance(RealmDC* Instance) {
 		s_Instance = Instance;
 	}
 
@@ -34,7 +34,7 @@ namespace Realm {
 		return s_Instance;
 	}
 
-	dpp::cluster* RealmDC::GetRealmBot(){
+	dpp::cluster* RealmDC::GetRealmBot() {
 		return s_Instance->RealmBot;
 	}
 
@@ -42,7 +42,7 @@ namespace Realm {
 
 	RealmDC* RealmDC::s_Instance = nullptr;
 
-	void InitRealmDC(){
+	void InitRealmDC() {
 		RealmDC::SetInstance(new RealmDC());
 	}
 }
