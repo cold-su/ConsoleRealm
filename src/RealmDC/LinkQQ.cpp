@@ -18,15 +18,12 @@ namespace Realm::DC {
 
 	//输出QQ
 	void LinkQQ::output(void(*Send)(nlohmann::json obj)) {
-		RealmDC::GetRealmBot()->on_message_create([&Send](const dpp::message_create_t& event) {
-
+		RealmDC::GetRealmBot()->on_message_create([Send](const dpp::message_create_t& event) {
+			
 			//debug
-			std::cout << event.msg.build_json() << std::endl;
-			std::cout << event.msg.content << std::endl;
+			std::cout << (nlohmann::json)event.msg.build_json() << std::endl;
 
-			event.reply("Test~");
-
-			//(*Send)(event.msg.build_json());
+			(*Send)((nlohmann::json)event.msg.build_json());
 			});
 	}
 
