@@ -26,7 +26,7 @@ namespace Realm::DC {
 			//debug
 			std::cout << JsonObj << std::endl;
 
-			(*Send)((nlohmann::json)event.msg.build_json());
+			(*Send)(JsonObj);
 			});
 	}
 
