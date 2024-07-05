@@ -19,8 +19,8 @@ namespace Realm {
 		RealmQQ::GetInstance()->QQInit();
 
 		//Link
-		DC::LinkQQ::output(QQ::LinkDC::Input);
-		QQ::LinkDC::output(DC::LinkQQ::Input);
+		DC::LinkQQ::OutputMsg(QQ::LinkDC::InputMsg);
+		QQ::LinkDC::OutputMsg(DC::LinkQQ::InputMsg);
 
 		return s_Instance;
 	}

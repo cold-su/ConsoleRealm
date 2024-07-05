@@ -102,6 +102,7 @@
     <ClCompile Include="src\RealmDC\slashcommand.cpp" />
     <ClCompile Include="src\RealmDC\webhook.cpp" />
     <ClCompile Include="src\RealmQQ\LinkDC.cpp" />
+    <ClCompile Include="src\RealmQQ\RealmHashQQ.cpp" />
     <ClCompile Include="src\RealmQQ\RealmQQ.cpp" />
     <ClCompile Include="src\RealmQQ\twobot\apiset.cc" />
     <ClCompile Include="src\RealmQQ\twobot\twobot.cc" />
@@ -142,7 +143,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <LibraryDependencies>dpp;jsoncpp;pthread</LibraryDependencies>
+      <LibraryDependencies>dpp;jsoncpp;pthread;curl</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">

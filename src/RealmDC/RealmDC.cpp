@@ -1,7 +1,9 @@
 ﻿#include "RealmDC.h"
-#include "RealmHashDC.h"
-#include "slashcommand.h"
+
+#include "../base/Config.h"
 #include "webhook.h"
+#include "slashcommand.h"
+#include "RealmHashDC.h"
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {

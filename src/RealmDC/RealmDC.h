@@ -2,8 +2,6 @@
 #include <dpp/dpp.h>
 #include <nlohmann/json.hpp>
 
-#include "../base/Config.h"
-
 namespace Realm {
 	class RealmDC {
 	public:
