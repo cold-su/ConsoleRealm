@@ -11,5 +11,7 @@ namespace Realm {
 		static void AddFuntionHash(std::string Command, void(*Funtion)(dpp::slashcommand_t*));
 
 		static std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> FuntionHash;
+
+		static std::unique_ptr<std::unordered_map<int, int>> channelHash;
 	};
 }

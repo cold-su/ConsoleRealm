@@ -2,7 +2,10 @@
 #include "base/Config.h"
 
 #include "RealmDC/RealmDC.h"
+#include "RealmDC/Link.h"
+
 #include "RealmQQ/RealmQQ.h"
+#include "RealmQQ/Link.h"
 
 namespace Realm {
 	//Necessary initialization
@@ -11,6 +14,10 @@ namespace Realm {
 
 		InitRealmDC();
 		RealmDC::GetInstance()->DCInit();
+
+		//Link
+		DC::Link::output(QQ::Link::Input);
+		QQ::Link::output(DC::Link::Input);
 
 		return s_Instance;
 	}

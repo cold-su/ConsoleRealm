@@ -1,20 +1,20 @@
-﻿#include "Link.h"
+﻿#include "LinkQQ.h"
 #include "RealmDC.h"
 #include "RealmHash.h"
 
 namespace Realm::DC {
-	void Link::InitLink(){
+	void LinkQQ::InitLink(){
 
 	}
 	//输入进DC消息
-	void Link::Input(Json::Value obj){
+	void LinkQQ::Input(Json::Value obj){
 		dpp::message msg;
 		
 		RealmDC::GetRealmBot()->message_create(msg);
 	}
 
 	//输出QQ
-	void Link::output(void(*Send)(Json::Value obj)){
+	void LinkQQ::output(void(*Send)(Json::Value obj)){
 		RealmDC::GetRealmBot()->on_message_create([Send](const dpp::message_create_t event) {
 			//debug
 			std::cout << event.msg.build_json() << std::endl;
@@ -23,5 +23,4 @@ namespace Realm::DC {
 			});
 	}
 
-	//Link* Link::s_Instance = nullptr;
 }

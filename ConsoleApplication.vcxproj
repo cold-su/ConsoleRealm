@@ -94,12 +94,13 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\RealmDC\Link.cpp" />
+    <ClCompile Include="src\RealmDC\LinkQQ.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\base\Config.cpp" />
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
     <ClCompile Include="src\RealmDC\RealmHash.cpp" />
     <ClCompile Include="src\RealmDC\slashcommand.cpp" />
+    <ClCompile Include="src\RealmQQ\LinkDC.cpp" />
     <ClCompile Include="src\RealmQQ\RealmQQ.cpp" />
     <ClCompile Include="src\RealmQQ\twobot\apiset.cc" />
     <ClCompile Include="src\RealmQQ\twobot\twobot.cc" />
@@ -108,10 +109,12 @@
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\base\Config.h" />
-    <ClInclude Include="src\RealmDC\Link.h" />
+    <ClInclude Include="src\RealmDC\LinkQQ.h" />
     <ClInclude Include="src\RealmDC\RealmDC.h" />
     <ClInclude Include="src\RealmDC\RealmHash.h" />
     <ClInclude Include="src\RealmDC\slashcommand.h" />
+    <ClInclude Include="src\RealmQQ\LinkDC.h" />
+    <ClInclude Include="src\RealmQQ\RealmHash.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />
     <ClInclude Include="src\RealmQQ\twobot\twobot.hh" />
   </ItemGroup>
