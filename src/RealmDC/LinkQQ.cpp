@@ -1,5 +1,7 @@
 ﻿#include "LinkQQ.h"
 
+#include "RealmHashDC.h"
+#include <stdlib.h>
 
 namespace Realm::DC {
 	void LinkQQ::InitLink() {
@@ -14,8 +16,9 @@ namespace Realm::DC {
 	//输出QQ
 	void LinkQQ::OutputMsg(void(*Send)(nlohmann::json obj)) {
 		RealmDC::GetRealmBot()->on_message_create([Send](const dpp::message_create_t& event) {
-			if (event.msg.id == RealmDC::GetRealmBot()->me.id)
+			if (event.msg.author.id == 1258868636953608305)
 				return;
+
 			nlohmann::json JsonObj = (nlohmann::json)event.msg.to_json();
 
 			JsonObj["usernamecustom"] = event.msg.author.global_name != "" ? event.msg.author.global_name : (std::string)JsonObj["username"];

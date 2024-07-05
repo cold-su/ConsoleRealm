@@ -3,7 +3,7 @@
 #include "RealmHashDC.h"
 
 namespace Realm {
-	Webhook::Webhook() :Linkhook((*Base::RealmConfig::GetInstance()->GetJsonConfig())["Webhook"]["url"]) {
+	Webhook::Webhook() :Linkhook((*Base::RealmConfig::GetJsonConfig())["Webhook"]["url"]) {
 
 	}
 	void Webhook::InitWebhook() {
@@ -13,19 +13,24 @@ namespace Realm {
 		return &s_Instance->Linkhook;
 	}
 	void Webhook::LinkWebhook() {
-
-		//dpp::webhook w = *Webhook::GetWebhook();
 		dpp::webhook w = *GetWebhook();
 
-		//需要内存地址
-
-		w.load_image(GetImageHash(ObjJS), dpp::i_jpg);
+		w.load_image(GetImageHash(ObjJS), dpp::i_png);
 
 		w.name = ObjJS["sender"]["card"] == "" ? ObjJS["sender"]["nickname"] : ObjJS["sender"]["card"];
 
-		std::cout << w.to_json() << std::endl;
+
+		//dpp::webhook whtest((*Base::RealmConfig::GetJsonConfig())["Webhook"]["url"]);
+		//nlohmann::json test;
+
+		//test["avatar_url"] = "https://qlogo4.store.qq.com/qzone/822438291/822438291/100";
+		//test["name"] = ObjJS["sender"]["card"] == "" ? ObjJS["sender"]["nickname"] : ObjJS["sender"]["card"];
+
+		//whtest.fill_from_json(&test);
 
 		RealmDC::GetRealmBot()->execute_webhook_sync(w, dpp::message(ObjJS["raw_message"]));
+
+		std::cout << w.to_json() << std::endl;
 	}
 
 	std::string Webhook::GetImageHash(nlohmann::json ObjJS) {
@@ -42,8 +47,8 @@ namespace Realm {
 	}
 
 	std::string Webhook::GetImage(dpp::snowflake user_id) {
-		std::string image_url = "https://qlogo4.store.qq.com/qzone/";;
-		image_url += user_id.str() + "/" + user_id.str() + "/100";
+		std::string image_url = "http://q.qlogo.cn/headimg_dl?dst_uin=";
+		image_url += user_id.str() + "&spec=4&img_type=png";
 
 		std::cout << image_url << std::endl;
 
@@ -54,7 +59,7 @@ namespace Realm {
 		curl = curl_easy_init();
 
 		if (curl) {
-			curl_easy_setopt(curl, CURLOPT_URL, image_url.c_str());
+			curl_easy_setopt(curl, CURLOPT_URL, "http://q.qlogo.cn/headimg_dl?dst_uin=822438291&spec=4&img_type=png");
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 
 			res = curl_easy_perform(curl);
@@ -69,6 +74,9 @@ namespace Realm {
 
 		std::cout << "Downloaded data length: " << downloadedData.length() << std::endl;
 		return downloadedData;
+	}
+	dpp::snowflake Webhook::GetChannel(dpp::snowflake _id){
+		return (*RealmHashDC::channelHash)[_id];
 	}
 	nlohmann::json Webhook::ObjJS = nlohmann::json();
 

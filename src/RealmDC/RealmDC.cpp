@@ -6,7 +6,7 @@
 #include "RealmHashDC.h"
 
 namespace Realm {
-	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
+	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetJsonConfig())["RealmDC"]) {
 		RealmBot = new dpp::cluster(ConfigDC["Token"], dpp::i_default_intents | dpp::i_message_content);
 	}
 

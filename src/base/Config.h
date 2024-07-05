@@ -9,7 +9,7 @@ namespace Base {
 		static nlohmann::json Read(std::string Path);
 		static RealmConfig* SetInstance(RealmConfig* Instance);
 		static RealmConfig* GetInstance();
-		nlohmann::json* GetJsonConfig();
+		static nlohmann::json* GetJsonConfig();
 	private:
 		nlohmann::json JsonConfig;
 		std::string Path;

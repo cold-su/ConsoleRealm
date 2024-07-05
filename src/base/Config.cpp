@@ -31,7 +31,7 @@ namespace Base {
 	}
 
 	nlohmann::json* RealmConfig::GetJsonConfig(){
-		return &JsonConfig;
+		return &s_Instance->JsonConfig;
 	}
 
 	RealmConfig* RealmConfig::s_Instance = nullptr;

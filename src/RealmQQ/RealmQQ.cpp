@@ -2,8 +2,10 @@
 #include "../base/Config.h"
 #include <thread>
 
+#include "RealmHashQQ.h"
+
 namespace Realm {
-	RealmQQ::RealmQQ() :ConfigQQ((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmQQ"]) {
+	RealmQQ::RealmQQ() :ConfigQQ((*Base::RealmConfig::GetJsonConfig())["RealmQQ"]) {
 		using twobot::Config;
 		using twobot::BotInstance;
 		using twobot::ApiSet;
@@ -26,6 +28,7 @@ namespace Realm {
 			RealmBot->start();
 			}).detach();
 
+		RealmHashQQ::InitHash();
 	}
 	void RealmQQ::QQRun() {
 
