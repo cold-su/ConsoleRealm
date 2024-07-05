@@ -1,5 +1,5 @@
 ﻿#include "RealmDC.h"
-#include "RealmHash.h"
+#include "RealmHashDC.h"
 #include "slashcommand.h"
 
 namespace Realm {
@@ -12,7 +12,7 @@ namespace Realm {
 
 		RealmBot->start(dpp::st_return);
 
-		RealmHash::InitHash();
+		RealmHashDC::InitHash();
 
 		Slashcommand::InitSlashcommand();
 	}

@@ -4,7 +4,7 @@
 #include <dpp/dpp.h>
 
 namespace Realm {
-	class RealmHash {
+	class RealmHashDC {
 	public:
 		static void InitHash();
 

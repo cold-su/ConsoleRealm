@@ -1,6 +1,6 @@
 ﻿#include "LinkQQ.h"
 #include "RealmDC.h"
-#include "RealmHash.h"
+#include "RealmHashDC.h"
 
 namespace Realm::DC {
 	void LinkQQ::InitLink() {

@@ -1,6 +1,6 @@
 ﻿#include "slashcommand.h"
 #include "RealmDC.h"
-#include "RealmHash.h"
+#include "RealmHashDC.h"
 
 namespace Realm {
 	Slashcommand::Slashcommand() :RealmBot(RealmDC::GetRealmBot()) {
@@ -38,11 +38,11 @@ namespace Realm {
 		//main
 		RealmBot->on_slashcommand([](dpp::slashcommand_t event) {
 			try {
-				if ((*RealmHash::FuntionHash)[event.command.get_command_name()] == nullptr) {
+				if ((*RealmHashDC::FuntionHash)[event.command.get_command_name()] == nullptr) {
 					event.reply("~~没有这个命令的实现~~");
 					throw "调用了空函数";
 				}
-				(*RealmHash::FuntionHash)[event.command.get_command_name()](&event);
+				(*RealmHashDC::FuntionHash)[event.command.get_command_name()](&event);
 			}
 			catch (const char* msg) {
 				std::cerr << msg << std::endl;
@@ -50,7 +50,7 @@ namespace Realm {
 			});
 
 		//Funtion
-		RealmHash::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
+		RealmHashDC::AddFuntionHash("Ping", [](dpp::slashcommand_t* event)->void {
 			event->reply("Pong~");
 			});
 	}
