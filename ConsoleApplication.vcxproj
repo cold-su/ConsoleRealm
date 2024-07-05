@@ -100,6 +100,7 @@
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
     <ClCompile Include="src\RealmDC\RealmHash.cpp" />
     <ClCompile Include="src\RealmDC\slashcommand.cpp" />
+    <ClCompile Include="src\RealmDC\webhook.cpp" />
     <ClCompile Include="src\RealmQQ\LinkDC.cpp" />
     <ClCompile Include="src\RealmQQ\RealmQQ.cpp" />
     <ClCompile Include="src\RealmQQ\twobot\apiset.cc" />
@@ -113,6 +114,7 @@
     <ClInclude Include="src\RealmDC\RealmDC.h" />
     <ClInclude Include="src\RealmDC\RealmHash.h" />
     <ClInclude Include="src\RealmDC\slashcommand.h" />
+    <ClInclude Include="src\RealmDC\webhook.h" />
     <ClInclude Include="src\RealmQQ\LinkDC.h" />
     <ClInclude Include="src\RealmQQ\RealmHash.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />
