@@ -1,6 +1,7 @@
 ﻿#include "RealmDC.h"
 #include "RealmHashDC.h"
 #include "slashcommand.h"
+#include "webhook.h"
 
 namespace Realm {
 	RealmDC::RealmDC() : ConfigDC((*Base::RealmConfig::GetInstance()->GetJsonConfig())["RealmDC"]) {
@@ -15,6 +16,7 @@ namespace Realm {
 		RealmHashDC::InitHash();
 
 		Slashcommand::InitSlashcommand();
+		Webhook::InitWebhook();
 	}
 
 	void RealmDC::DCRun() {

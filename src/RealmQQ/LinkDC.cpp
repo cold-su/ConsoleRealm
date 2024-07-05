@@ -10,8 +10,6 @@ namespace Realm::QQ {
 	void LinkDC::Input(nlohmann::json obj){
 		std::cout << "QQ函数回调" << std::endl;
 
-		//std::string temp = ((std::string)obj["usernamecustom"] + ":" + (std::string)obj["content"]);
-
 		RealmQQ::GetRealmBot()->getApiSet().sendGroupMsg(638380392, ((std::string)obj["usernamecustom"] + ":" + (std::string)obj["content"]));
 	}
 
