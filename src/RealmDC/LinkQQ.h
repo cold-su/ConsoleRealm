@@ -3,7 +3,7 @@
 
 #include "RealmDC.h"
 #include "RealmHashDC.h"
-#include "webhook.h"
+#include "SendWebhook.h"
 
 namespace Realm::DC {
 	class LinkQQ {

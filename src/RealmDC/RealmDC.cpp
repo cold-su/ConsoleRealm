@@ -1,7 +1,7 @@
 ﻿#include "RealmDC.h"
 
 #include "../base/Config.h"
-#include "webhook.h"
+#include "SendWebhook.h"
 #include "slashcommand.h"
 #include "RealmHashDC.h"
 
