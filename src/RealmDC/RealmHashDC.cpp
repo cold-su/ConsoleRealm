@@ -22,6 +22,10 @@ namespace Realm {
 		(*FuntionHash)[Command] = Funtion;
 	}
 
+	dpp::snowflake RealmHashDC::GetChannel(int _id){
+		return (*channelHash)[_id];
+	}
+
 	//static
 	std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> RealmHashDC::FuntionHash = nullptr;
 

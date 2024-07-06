@@ -1,6 +1,7 @@
 ﻿#include "LinkQQ.h"
 
 #include "RealmHashDC.h"
+#include "../RealmQQ/RealmHashQQ.h"
 #include <stdlib.h>
 
 namespace Realm::DC {
@@ -26,7 +27,7 @@ namespace Realm::DC {
 			//debug
 			std::cout << JsonObj << std::endl;
 
-			if (event.msg.channel_id == 950402907575054336)
+			if (RealmHashQQ::GetGroup(event.msg.channel_id) != NULL)
 				(*Send)(JsonObj);
 			});
 	}

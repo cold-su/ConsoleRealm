@@ -13,32 +13,31 @@ namespace Realm {
 		return &s_Instance->Linkhook;
 	}
 	void Webhook::LinkWebhook() {
-		dpp::webhook w = *GetWebhook();
+		dpp::webhook webhook = *GetWebhook();
 
-		w.load_image(GetImageHash(ObjJS), dpp::i_png);
+		webhook.load_image(GetImageHash(ObjJS), dpp::i_webp);
 
-		w.name = ObjJS["sender"]["card"] == "" ? ObjJS["sender"]["nickname"] : ObjJS["sender"]["card"];
+		webhook.name = ObjJS["sender"]["card"] == "" ? ObjJS["sender"]["nickname"] : ObjJS["sender"]["card"];
+
+		dpp::snowflake Thread_id = GetChannel(ObjJS["group_id"]);
+
+		//message add
+		std::vector<std::string> msgs;
+
+		for (nlohmann::json tmp : ObjJS["message"])
+			msgs.push_back(tmp["type"] == "text" ? tmp["data"]["text"] : tmp["data"]["url"]);
 
 
-		//dpp::webhook whtest((*Base::RealmConfig::GetJsonConfig())["Webhook"]["url"]);
-		//nlohmann::json test;
 
-		//test["avatar_url"] = "https://qlogo4.store.qq.com/qzone/822438291/822438291/100";
-		//test["name"] = ObjJS["sender"]["card"] == "" ? ObjJS["sender"]["nickname"] : ObjJS["sender"]["card"];
+		for (std::string msg : msgs) {
+			RealmDC::GetRealmBot()->execute_webhook_sync(webhook, dpp::message(msg), false, Thread_id);
+		}
 
-		//whtest.fill_from_json(&test);
-
-		RealmDC::GetRealmBot()->execute_webhook_sync(w, dpp::message(ObjJS["raw_message"]));
-
-		std::cout << w.to_json() << std::endl;
 	}
 
 	std::string Webhook::GetImageHash(nlohmann::json ObjJS) {
 		if ((*RealmHashDC::ImageHash)[ObjJS["group_id"]] == "") {
 			(*RealmHashDC::ImageHash)[ObjJS["group_id"]] = GetImage(ObjJS["user_id"]);
-
-			std::cout << ObjJS["user_id"] << std::endl;
-			std::cout << (*RealmHashDC::ImageHash)[ObjJS["group_id"]] << std::endl;
 
 			return (*RealmHashDC::ImageHash)[ObjJS["group_id"]];
 		}
@@ -48,7 +47,7 @@ namespace Realm {
 
 	std::string Webhook::GetImage(dpp::snowflake user_id) {
 		std::string image_url = "http://q.qlogo.cn/headimg_dl?dst_uin=";
-		image_url += user_id.str() + "&spec=4&img_type=png";
+		image_url += user_id.str() + "&spec=4&img_type=webp";
 
 		std::cout << image_url << std::endl;
 
@@ -59,7 +58,7 @@ namespace Realm {
 		curl = curl_easy_init();
 
 		if (curl) {
-			curl_easy_setopt(curl, CURLOPT_URL, "http://q.qlogo.cn/headimg_dl?dst_uin=822438291&spec=4&img_type=png");
+			curl_easy_setopt(curl, CURLOPT_URL, "http://q.qlogo.cn/headimg_dl?dst_uin=822438291&spec=4&img_type=webp");
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 
 			res = curl_easy_perform(curl);
@@ -75,7 +74,7 @@ namespace Realm {
 		std::cout << "Downloaded data length: " << downloadedData.length() << std::endl;
 		return downloadedData;
 	}
-	dpp::snowflake Webhook::GetChannel(dpp::snowflake _id){
+	dpp::snowflake Webhook::GetChannel(dpp::snowflake _id) {
 		return (*RealmHashDC::channelHash)[_id];
 	}
 	nlohmann::json Webhook::ObjJS = nlohmann::json();

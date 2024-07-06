@@ -14,6 +14,12 @@ namespace Realm {
 		}
 	}
 
+	int RealmHashQQ::GetGroup(dpp::snowflake _id){
+		return (*groupHash)[_id];
+	}
+
 	//TODO:add static var
 	std::unique_ptr<std::unordered_map<dpp::snowflake, int>> RealmHashQQ::groupHash;
+
+	
 }

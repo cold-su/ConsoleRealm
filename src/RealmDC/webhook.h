@@ -19,7 +19,6 @@ namespace Realm {
 		static std::string GetImage(dpp::snowflake user_id);
 
 		static dpp::snowflake GetChannel(dpp::snowflake _id);
-		static std::string GetChannel();
 
 		static nlohmann::json ObjJS;
 	private:
