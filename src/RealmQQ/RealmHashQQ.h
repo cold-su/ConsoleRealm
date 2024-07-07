@@ -13,6 +13,6 @@ namespace Realm {
 
 		static std::unique_ptr<std::unordered_map<dpp::snowflake, int>> groupHash;
 
-		static std::unique_ptr<std::unordered_map<dpp::snowflake, int>> messageHash
+		static std::unique_ptr<std::unordered_map<dpp::snowflake, int>> messageHash;
 	};
 }

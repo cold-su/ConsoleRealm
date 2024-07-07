@@ -100,7 +100,6 @@
     <ClCompile Include="src\RealmDC\RealmDC.cpp" />
     <ClCompile Include="src\RealmDC\RealmHashDC.cpp" />
     <ClCompile Include="src\RealmDC\slashcommand.cpp" />
-    <ClCompile Include="src\RealmDC\SendWebhook.cpp" />
     <ClCompile Include="src\RealmQQ\LinkDC.cpp" />
     <ClCompile Include="src\RealmQQ\RealmHashQQ.cpp" />
     <ClCompile Include="src\RealmQQ\RealmQQ.cpp" />
@@ -115,7 +114,6 @@
     <ClInclude Include="src\RealmDC\RealmDC.h" />
     <ClInclude Include="src\RealmDC\RealmHashDC.h" />
     <ClInclude Include="src\RealmDC\slashcommand.h" />
-    <ClInclude Include="src\RealmDC\SendWebhook.h" />
     <ClInclude Include="src\RealmQQ\LinkDC.h" />
     <ClInclude Include="src\RealmQQ\RealmHashQQ.h" />
     <ClInclude Include="src\RealmQQ\RealmQQ.h" />

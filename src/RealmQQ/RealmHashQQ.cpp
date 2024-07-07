@@ -6,6 +6,8 @@ namespace Realm {
 
 		groupHash.reset(new std::unordered_map<dpp::snowflake, int>());
 
+		messageHash.reset(new std::unordered_map<dpp::snowflake, int>());
+
 		for (int i = 0; i < (*Base::RealmConfig::GetJsonConfig())["RealmQQ"]["Link"].size(); ++i) {
 			int QQtmp = (*Base::RealmConfig::GetJsonConfig())["RealmQQ"]["Link"][i];
 			dpp::snowflake DCtmp = (*Base::RealmConfig::GetJsonConfig())["RealmDC"]["Link"][i];
@@ -14,12 +16,12 @@ namespace Realm {
 		}
 	}
 
-	int RealmHashQQ::GetGroup(dpp::snowflake _id){
+	int RealmHashQQ::GetGroup(dpp::snowflake _id) {
 		return (*groupHash)[_id];
 	}
 
 	//TODO:add static var
 	std::unique_ptr<std::unordered_map<dpp::snowflake, int>> RealmHashQQ::groupHash;
 
-	
+	std::unique_ptr<std::unordered_map<dpp::snowflake, int>> RealmHashQQ::messageHash;
 }

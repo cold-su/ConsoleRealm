@@ -8,6 +8,8 @@ namespace Realm {
 
 		channelHash.reset(new std::unordered_map<int, dpp::snowflake>());
 
+		messageHash.reset(new std::unordered_map<int, dpp::snowflake>());
+
 		ImageHash.reset(new std::unordered_map<dpp::snowflake, std::string>());
 
 		for (int i = 0; i < (*Base::RealmConfig::GetJsonConfig())["RealmDC"]["Link"].size(); ++i) {
@@ -30,6 +32,8 @@ namespace Realm {
 	std::unique_ptr<std::unordered_map<std::string, void(*) (dpp::slashcommand_t*)>> RealmHashDC::FuntionHash = nullptr;
 
 	std::unique_ptr<std::unordered_map<int, dpp::snowflake>> RealmHashDC::channelHash = nullptr;
+
+	std::unique_ptr<std::unordered_map<int, dpp::snowflake>> RealmHashDC::messageHash;
 
 	std::unique_ptr<std::unordered_map<dpp::snowflake, std::string>> RealmHashDC::ImageHash = nullptr;
 }
