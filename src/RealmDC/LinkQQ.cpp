@@ -1,5 +1,6 @@
 ﻿#include "LinkQQ.h"
 
+#include "RealmDC.h"
 #include "RealmHashDC.h"
 #include "../RealmQQ/RealmHashQQ.h"
 #include <stdlib.h>
@@ -10,8 +11,13 @@ namespace Realm::DC {
 	}
 	//输入进DC消息
 	void LinkQQ::InputMsg(nlohmann::json obj) {
-		Webhook::ObjJS = obj;
-		Webhook::LinkWebhook();
+		ObjJS = obj;
+		//add QQ message
+		dpp::embed EmbedQQ;
+
+
+
+		RealmDC::GetRealmBot()->message_create(dpp::message(RealmHashDC::GetChannel(obj[""]), EmbedQQ));
 	}
 
 	//输出QQ
@@ -32,4 +38,9 @@ namespace Realm::DC {
 			});
 	}
 
+	nlohmann::json LinkQQ::GetObjJS(){
+		return ObjJS;
+	}
+
+	nlohmann::json DC::ObjJS;
 }
