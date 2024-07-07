@@ -8,7 +8,7 @@
 namespace Realm::DC {
 	class LinkQQ {
 	public:
-		static void InitLink(QQ::LinkDC& Obj);
+		static void InitLink();
 		static void InputMsg(nlohmann::json obj);
 		static void OutputMsg(void(*Send)(nlohmann::json obj));
 

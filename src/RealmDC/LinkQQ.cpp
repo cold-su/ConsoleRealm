@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 namespace Realm::DC {
-	void LinkQQ::InitLink(QQ::LinkDC& Obj) {
+	void LinkQQ::InitLink() {
 
 	}
 	//输入进DC消息
