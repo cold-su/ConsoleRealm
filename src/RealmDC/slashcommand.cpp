@@ -15,7 +15,7 @@ namespace Realm {
 
 		RunDeleteSlashcommand();
 	}
-	Slashcommand* Slashcommand::GetInstance(){
+	Slashcommand* Slashcommand::GetInstance() {
 		return s_Instance;
 	}
 	void Slashcommand::RunDeleteSlashcommand() {

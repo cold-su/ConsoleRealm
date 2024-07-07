@@ -32,10 +32,10 @@ namespace Realm::QQ {
 			});
 
 	}
-	void LinkDC::InputRecall(nlohmann::json obj){
+	void LinkDC::InputRecall(nlohmann::json obj) {
 
 	}
-	void LinkDC::OutRecall(void(*Send)(nlohmann::json obj)){
+	void LinkDC::OutRecall(void(*Send)(nlohmann::json obj)) {
 
 	}
 }

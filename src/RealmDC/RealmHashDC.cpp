@@ -24,7 +24,7 @@ namespace Realm {
 		(*FuntionHash)[Command] = Funtion;
 	}
 
-	dpp::snowflake RealmHashDC::GetChannel(int _id){
+	dpp::snowflake RealmHashDC::GetChannel(int _id) {
 		return (*channelHash)[_id];
 	}
 

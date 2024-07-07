@@ -16,7 +16,7 @@ namespace Realm::DC {
 		dpp::embed EmbedQQ;
 
 		std::string avatar = std::string("https://q.qlogo.cn/headimg_dl?dst_uin=") + std::string(std::to_string((int)obj["user_id"])) + std::string("&spec=2&img_type=jpg");
-		
+
 
 		EmbedQQ
 			.set_author(obj["sender"]["card"] == "" ? obj["sender"]["nickname"] : obj["sender"]["card"], "", avatar);
@@ -29,7 +29,7 @@ namespace Realm::DC {
 			//TODO:add message funtion()
 			//like:std::string message(msg);
 			EmbedQQ
-				.add_field(msg,"");
+				.add_field(msg, "");
 		}
 
 		EmbedQQ.set_color(dpp::colors::purple_dragon);
@@ -56,12 +56,12 @@ namespace Realm::DC {
 				(*Send)(JsonObj);
 			});
 	}
-	void LinkQQ::InputRecall(nlohmann::json obj){
+	void LinkQQ::InputRecall(nlohmann::json obj) {
 
 	}
-	void LinkQQ::OutRecall(void(*Send)(nlohmann::json obj)){
+	void LinkQQ::OutRecall(void(*Send)(nlohmann::json obj)) {
 
 	}
 
-	
+
 }
