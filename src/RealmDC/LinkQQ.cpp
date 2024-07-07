@@ -7,7 +7,8 @@
 
 namespace Realm::DC {
 	void LinkQQ::InitLink() {
-
+		QQ::LinkDC Obj;
+		Obj.OutputMsg(InputMsg);
 	}
 	//输入进DC消息
 	void LinkQQ::InputMsg(nlohmann::json obj) {
@@ -31,7 +32,7 @@ namespace Realm::DC {
 				.add_field(msg,"");
 		}
 
-		EmbedQQ.set_color(dpp::colors::light_steel_blue);
+		EmbedQQ.set_color(dpp::colors::purple_dragon);
 
 		RealmDC::GetRealmBot()->message_create(dpp::message(RealmHashDC::GetChannel(obj["group_id"]), EmbedQQ), [](const dpp::confirmation_callback_t& callback)->dpp::command_completion_event_t {
 			return dpp::utility::log_error();
@@ -54,5 +55,11 @@ namespace Realm::DC {
 			if (RealmHashQQ::GetGroup(event.msg.channel_id) != NULL)
 				(*Send)(JsonObj);
 			});
+	}
+	void LinkQQ::InputRecall(nlohmann::json obj){
+
+	}
+	void LinkQQ::OutRecall(void(*Send)(nlohmann::json obj)){
+
 	}
 }

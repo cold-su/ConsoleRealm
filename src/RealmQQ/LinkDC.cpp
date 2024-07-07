@@ -8,7 +8,8 @@
 
 namespace Realm::QQ {
 	void LinkDC::InitLink() {
-
+		DC::LinkQQ Obj;
+		Obj.OutputMsg(InputMsg);
 	}
 	void LinkDC::InputMsg(nlohmann::json obj) {
 		std::cout << "QQ函数回调" << std::endl;
@@ -29,6 +30,12 @@ namespace Realm::QQ {
 
 			(*Send)(msg.raw_msg);
 			});
+
+	}
+	void LinkDC::InputRecall(nlohmann::json obj){
+
+	}
+	void LinkDC::OutRecall(void(*Send)(nlohmann::json obj)){
 
 	}
 }

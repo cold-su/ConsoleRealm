@@ -9,7 +9,7 @@
 
 namespace Realm {
 	//Necessary initialization
-	Application* Application::Init(){
+	Application* Application::Init() {
 		Base::InitConfig("/home/awalwa/projects/ConsoleApplication/date/");
 
 		InitRealmDC();
@@ -19,14 +19,14 @@ namespace Realm {
 		RealmQQ::GetInstance()->QQInit();
 
 		//Link
-		DC::LinkQQ::OutputMsg(QQ::LinkDC::InputMsg);
-		QQ::LinkDC::OutputMsg(DC::LinkQQ::InputMsg);
+		DC::LinkQQ::InitLink();
+		QQ::LinkDC::InitLink();
 
 		return s_Instance;
 	}
 
 	//start Run and Execute Funtion,Runing date link
-	Application* Application::Run(){
+	Application* Application::Run() {
 		RealmDC::GetInstance()->DCRun();
 		RealmQQ::GetInstance()->QQRun();
 
@@ -34,7 +34,7 @@ namespace Realm {
 	}
 
 	//~Funtion,And Save Run Data
-	Application* Application::Quit(){
+	Application* Application::Quit() {
 		RealmDC::GetInstance()->DCQuit();
 		RealmQQ::GetInstance()->QQQuit();
 
@@ -42,18 +42,18 @@ namespace Realm {
 	}
 
 	//TODO:User defined
-	Application::Application(){
+	Application::Application() {
 
 	}
 
 	//Practice Free memory
-	Application::~Application(){
+	Application::~Application() {
 		delete s_Instance;
 		s_Instance = nullptr;
 	}
 
 	//CreateInstance
-	Application* Application::CreateApplication(){
+	Application* Application::CreateApplication() {
 		s_Instance = new Application();
 		return s_Instance;
 	}

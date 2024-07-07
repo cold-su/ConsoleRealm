@@ -10,8 +10,8 @@ namespace Realm::QQ {
 		static void InputMsg(nlohmann::json obj);
 		static void OutputMsg(void(*Send)(nlohmann::json obj));
 
-		//static void InputRecall();
-		//static void OutRecall();
+		static void InputRecall(nlohmann::json obj);
+		static void OutRecall(void(*Send)(nlohmann::json obj));
 	private:
 
 		//static Link* s_Instance;
