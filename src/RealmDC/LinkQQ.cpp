@@ -62,4 +62,6 @@ namespace Realm::DC {
 	void LinkQQ::OutRecall(void(*Send)(nlohmann::json obj)){
 
 	}
+
+	
 }
