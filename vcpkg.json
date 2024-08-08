@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "dpp",
+    "nlohmann-json",
+    "jsoncpp"
+  ]
+}
