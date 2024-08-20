@@ -1,7 +1,8 @@
 {
   "dependencies": [
     "dpp",
+    "jsoncpp",
     "nlohmann-json",
-    "jsoncpp"
+    "cpp-httplib"
   ]
 }
